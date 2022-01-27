@@ -92,7 +92,4 @@ function game(){
   return playerScore > computerScore ?
     console.log("You won with a score of: " + playerScore + " Opponent Score: " + computerScore + " Stalemates: " + stalemates):
     console.log("You lost with a score of: " + playerScore + " Opponent Score: " + computerScore + " Stalemates: " + stalemates);
-
 }
-
-game();
