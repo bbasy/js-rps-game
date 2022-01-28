@@ -5,9 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Import Manrope Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
     <script type="text/javascript" src="js/rps.js"></script>
   </head>
   <body>
+    <header>
+      <h1>Rock, Paper, Scissors!</h1>
+    </header>
 
+    <main class="content">
+      <div id="scoreboard">
+        <p>Your Score: </p>
+        <p>Round: </p>
+        <p>Opponent Score: </p>
+      </div>
+      <div class="displaySelection">
+        <p>&#9996;</p>
+      </div>
+      <div class="displaySelection">
+        <p>&#9996;</p>
+      </div>
+      <div id="buttonSelector">
+        <button type="input" value="Rock">&#9994;</button>
+        <button type="input" value="Paper">&#9995;</button>
+        <button type="input" value="Scissors">&#9996;</button>
+      </div>
+    </main>
   </body>
 </html>
