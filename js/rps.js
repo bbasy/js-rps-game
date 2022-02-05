@@ -2,14 +2,20 @@ const choices = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
 let stalemates = 0;
+let selection = "";
+let aiselection = "";
+
+const btn = document.getElementsByClassName("input-btn");
+btn.forEach(playerSelection());
 
 function playerSelection() {
-  let selection = window.prompt("Choose: Rock, Paper, Scissors");
-  // Input Validation
-  let isValid = 1;
-  selection = selection.charAt(0).toUpperCase() + selection.slice(1).toLowerCase();
-  selection = choices.includes(selection) ? selection : isValid = 0;
-  return isValid ? selection : playerSelection();
+  console.log("banana");
+  return playerSelect => {
+    playerSelect.addEventListener("click", (e) => {
+      selection = e.value;
+      console.log(e);
+    });
+  };
 }
 
 function computerSelection() {
@@ -74,8 +80,12 @@ function returnVictor(playerSelection, computerSelection) {
 }
 
 function playRound() {
-  let player = playerSelection();
-  let ai = computerSelection();
+  btn.forEach(button => button.addEventListener('click', event => {
+    player = playerSelection(this.value);
+    aiselection = computerSelection();
+    console.log(player);
+    console.log(aiselection);
+  }));
   return returnVictor(player, ai);
 }
 
