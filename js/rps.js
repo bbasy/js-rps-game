@@ -5,17 +5,9 @@ let stalemates = 0;
 let selection = "";
 let aiselection = "";
 
-const btn = document.getElementsByClassName("input-btn");
-btn.forEach(playerSelection());
-
-function playerSelection() {
-  console.log("banana");
-  return playerSelect => {
-    playerSelect.addEventListener("click", (e) => {
-      selection = e.value;
-      console.log(e);
-    });
-  };
+function playerSelection(input) {
+  selection = input;
+  return selection;
 }
 
 function computerSelection() {
