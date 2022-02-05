@@ -5,8 +5,25 @@ let stalemates = 0;
 let selection = "";
 let aiselection = "";
 
-function playerSelection(input) {
-  selection = input;
+const btn = document.getElementsByClassName('input-btn')
+const playerView = document.getElementById('pSelect')
+const aiView = document.getElementById('aiSelect')
+const rockTxt = "&#9994";
+const paperTxt = "&#9995";
+const scisTxt = "&#9996";
+
+// On button click
+
+for(var i = 0; i < btn.length; i++){
+  btn[i].addEventListener('click', function(e) {
+    playerSelection(this.value);
+    changeViewTxt();
+  });
+}
+
+function playerSelection(value) {
+  selection = value;
+  console.log(selection);
   return selection;
 }
 
@@ -15,6 +32,21 @@ function computerSelection() {
   return choices[random];
 }
 
+function changeViewTxt() {
+  switch(selection) {
+    case choices[0]:
+      playerView.innerHTML = rockTxt;
+      break;
+
+    case choices[1]:
+      playerView.innerHTML = paperTxt;
+      break;
+
+    case choices[2]:
+      playerView.innerHTML = scisTxt;
+      break;
+  }
+}
 function returnVictor(playerSelection, computerSelection) {
   // Player is Rock
   if(playerSelection == choices[0]){
@@ -72,13 +104,7 @@ function returnVictor(playerSelection, computerSelection) {
 }
 
 function playRound() {
-  btn.forEach(button => button.addEventListener('click', event => {
-    player = playerSelection(this.value);
-    aiselection = computerSelection();
-    console.log(player);
-    console.log(aiselection);
-  }));
-  return returnVictor(player, ai);
+  selection = "";
 }
 
 function game(){
