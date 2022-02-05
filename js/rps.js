@@ -65,6 +65,13 @@ function updateScore() {
   aiBoard.innerHTML = aiScore;
 }
 
+function clearScore() {
+  playerScore = 0;
+  curRound = 0;
+  aiScore = 0;
+  updateScore();
+}
+
 function returnVictor(playerSelection, computerSelection) {
   // Player is Rock
   if(playerSelection == choices[0]){
@@ -121,26 +128,27 @@ function returnVictor(playerSelection, computerSelection) {
   }
 }
 
-function playRound() {
+function playGame() {
   // Round is started once the player clicks one of three buttons
-  changeViewTxt();
-  returnVictor(selection, aiSelection);
-  updateScore();
-}
-
-function game(){
-  let rounds = 5;
-  playerScore = 0;
-  computerScore = 0;
-  stalemates = 0;
-  
-  
+  let scoreToReach = 5;
+  if(playerScore < scoreToReach && aiScore < scoreToReach){
+    curRound++;
+    changeViewTxt();
+    returnVictor(selection, aiSelection);
+    updateScore();
+  } else if(playerScore == scoreToReach){
+    alert("Congratulations! You have won against your opponent.");
+    clearScore();
+  } else if(aiScore == scoreToReach){
+    alert("Unfortunately, your opponent has beaten you!");
+    clearScore();
+  }
 }
 
 // On button click
 
 for(var i = 0; i < btn.length; i++){
   btn[i].addEventListener('click', function(e) {
-    playRound();
+    playGame();
   });
 }
