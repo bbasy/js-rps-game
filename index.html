@@ -20,20 +20,20 @@
 
     <main class="content">
       <div id="scoreboard">
-        <p>Your Score: </p>
-        <p>Round: </p>
-        <p>Opponent Score: </p>
+        <p>Your Score: <span id="playerScore">0</span></p>
+        <p>Round: <span id="round">0</span></p>
+        <p>Opponent Score: <span id="aiScore">0</span></p>
       </div>
       <div class="displaySelection">
-        <p id="aiSelect">&#9996;</p>
+        <p id="aiSelect">?</p>
       </div>
       <div class="displaySelection">
         <p id="pSelect">&#9996;</p>
       </div>
       <div id="buttonSelector">
-        <button class="input-btn" value="Rock">&#9994;</button>
-        <button class="input-btn" value="Paper">&#9995;</button>
-        <button class="input-btn" value="Scissors">&#9996;</button>
+        <button class="input-btn" onclick="playerSelection('Rock')">&#9994;</button>
+        <button class="input-btn" onclick="playerSelection('Paper')">&#9995;</button>
+        <button class="input-btn" onclick="playerSelection('Scissors')">&#9996;</button>
       </div>
     </main>
   </body>
